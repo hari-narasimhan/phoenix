@@ -1,0 +1,34 @@
+{
+  "name": "@phoenix/provider-mongo",
+  "version": "0.1.0",
+  "description": "A mongo resource provider",
+  "keywords": [
+    "MongoDB",
+    "provider"
+  ],
+  "author": "Hari Narasimhan <hari@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/provider-mongo.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "await-to-js": "2.1.1",
+    "csv-stringify": "5.6.1",
+    "generic-pool": "3.7.1",
+    "lodash": "4.17.20",
+    "mongodb": "3.6.3",
+    "uuid": "8.3.2"
+  }
+}
