@@ -1,6 +1,6 @@
 {
   "name": "@phoenix/provider-mongo",
-  "version": "0.1.0",
+  "version": "0.0.1-alpha.1+3e2d566",
   "description": "A mongo resource provider",
   "keywords": [
     "MongoDB",
@@ -30,5 +30,6 @@
     "lodash": "4.17.20",
     "mongodb": "3.6.3",
     "uuid": "8.3.2"
-  }
+  },
+  "gitHead": "3e2d56683bcd2357321243501608a588f51cdd4b"
 }
