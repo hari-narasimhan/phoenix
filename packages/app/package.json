@@ -1,6 +1,6 @@
 {
-  "name": "@phoenix/app",
-  "version": "0.0.1-alpha.2+597f3cb",
+  "name": "@super-phoenix/app",
+  "version": "0.0.1-alpha.3+e4a4bf4",
   "description": "The microservice application",
   "keywords": [
     "microservice",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
-    "@phoenix/resource-factory": "^0.0.1-alpha.2+597f3cb",
+    "@phoenix/resource-factory": "^0.0.1-alpha.3+e4a4bf4",
     "await-to-js": "^2.1.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
@@ -39,10 +39,10 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@phoenix/provider-mongo": "^0.0.1-alpha.2+597f3cb",
-    "@phoenix/proxy-token": "^0.0.1-alpha.2+597f3cb",
+    "@phoenix/provider-mongo": "^0.0.1-alpha.3+e4a4bf4",
+    "@phoenix/proxy-token": "^0.0.1-alpha.3+e4a4bf4",
     "koa-router": "^10.0.0",
     "supertest": "^6.0.1"
   },
-  "gitHead": "597f3cbc2475294e3c768c14a77333e06f90ecb1"
+  "gitHead": "e4a4bf4cb55a1a087216d3949c37da7012ef5b10"
 }
