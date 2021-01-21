@@ -1,6 +1,6 @@
 {
   "name": "@phoenix/proxy-token",
-  "version": "0.0.1-alpha.1+3e2d566",
+  "version": "0.0.1-alpha.2+597f3cb",
   "description": "A proxy token generator, generates JWT token for interservice authorization",
   "keywords": [
     "jwt",
@@ -28,5 +28,5 @@
   "dependencies": {
     "jsonwebtoken": "^8.5.1"
   },
-  "gitHead": "3e2d56683bcd2357321243501608a588f51cdd4b"
+  "gitHead": "597f3cbc2475294e3c768c14a77333e06f90ecb1"
 }
