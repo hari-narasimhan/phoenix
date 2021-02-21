@@ -3,7 +3,7 @@
 const App = require('../lib/app')
 const request = require('supertest')
 const params = require('./appConfig')
-const ProxyToken = require('@phoenix/proxy-token')
+const ProxyToken = require('@super-phoenix/proxy-token')
 
 let appInstance = null
 
