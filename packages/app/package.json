@@ -1,6 +1,6 @@
 {
   "name": "@super-phoenix/app",
-  "version": "0.0.1-alpha.3+e4a4bf4",
+  "version": "0.0.1",
   "description": "The microservice application",
   "keywords": [
     "microservice",
