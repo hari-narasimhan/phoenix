@@ -2,7 +2,7 @@
 
 const ResourceFactory = require('../lib/resource-factory')
 
-test('@phoenix/resource-factory', () => {
+test('@super-phoenix/resource-factory', () => {
   expect(true).toBe(true)
 })
 

@@ -1,6 +1,6 @@
 const Router = require('koa-router')
-const ProxyToken = require('@phoenix/proxy-token')
-const MongoProvider = require('@phoenix/provider-mongo')
+const ProxyToken = require('@super-phoenix/proxy-token')
+const MongoProvider = require('@super-phoenix/provider-mongo')
 const router = new Router()
 require('./routes').register(router)
 

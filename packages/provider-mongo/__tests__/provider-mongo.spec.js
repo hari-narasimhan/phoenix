@@ -31,7 +31,7 @@ const ctxDepartments = { tenant: 'providerMongoTest', coll: 'departments' }
 
 const db = ProviderMongo.create(mongoConfig)
 
-test('@phoenix/provider-mongo::Cleanup previous run', async (done) => {
+test('@super-phoenix/provider-mongo::Cleanup previous run', async (done) => {
   const criteria = { name: 'mongo' }
   let result = await db.removeMultiple({ context: ctxProviders, criteria })
   result = await db.removeMultiple({ context: ctxDepartments, criteria: {} })
@@ -39,7 +39,7 @@ test('@phoenix/provider-mongo::Cleanup previous run', async (done) => {
   done()
 })
 
-test('@phoenix/provider-mongo::Should insert a document into the database', async (done) => {
+test('@super-phoenix/provider-mongo::Should insert a document into the database', async (done) => {
   const payload = { name: 'mongo', config: {} }
   const result = await db.insert({ context: ctxProviders, payload })
   const id = result.ops[0].id
@@ -48,21 +48,21 @@ test('@phoenix/provider-mongo::Should insert a document into the database', asyn
   done()
 })
 
-test('@phoenix/provder-mongo::Should find one', async (done) => {
+test('@super-phoenix/provder-mongo::Should find one', async (done) => {
   const query = { name: 'mongo' }
   const result = await db.findOne({ context: ctxProviders, query })
   expect(result.name).toEqual(query.name)
   done()
 })
 
-test('@phoenix/provder-mongo::Should find by params', async (done) => {
+test('@super-phoenix/provder-mongo::Should find by params', async (done) => {
   const query = { name: 'mongo' }
   const result = await db.findByParams({ context: ctxProviders, query })
   expect(result.name).toEqual(query.name)
   done()
 })
 
-test('@phoenix/provder-mongo::Should upsert', async (done) => {
+test('@super-phoenix/provder-mongo::Should upsert', async (done) => {
   const criteria = { name: 'mongo-upserted' }
   const result = await db.upsert({ context: ctxProviders, criteria, payload: criteria })
   expect(result.value.name).toEqual(criteria.name)
@@ -71,7 +71,7 @@ test('@phoenix/provder-mongo::Should upsert', async (done) => {
   done()
 })
 
-test('@phoenix/provder-mongo::Should remove', async (done) => {
+test('@super-phoenix/provder-mongo::Should remove', async (done) => {
   const criteria = { name: 'mongo-upserted' }
   const result = await db.remove({ context: ctxProviders, criteria })
   expect(result.value.name).toEqual(criteria.name)
@@ -79,7 +79,7 @@ test('@phoenix/provder-mongo::Should remove', async (done) => {
   done()
 })
 
-test('@phoenix/provder-mongo::Should find by id and remove', async (done) => {
+test('@super-phoenix/provder-mongo::Should find by id and remove', async (done) => {
   const criteria = { name: 'mongo-upserted-removed' }
   const result = await db.upsert({ context: ctxProviders, criteria, payload: criteria })
   expect(result.value.name).toEqual(criteria.name)
@@ -90,21 +90,21 @@ test('@phoenix/provder-mongo::Should find by id and remove', async (done) => {
   done()
 })
 
-test('@phoenix/provder-mongo::Should find without cursor', async (done) => {
+test('@super-phoenix/provder-mongo::Should find without cursor', async (done) => {
   const query = { name: 'mongo' }
   const result = await db.find({ context: ctxProviders, query })
   expect(result.cursor).toBeFalsy()
   done()
 })
 
-test('@phoenix/provder-mongo::Should find with cursor', async (done) => {
+test('@super-phoenix/provder-mongo::Should find with cursor', async (done) => {
   const query = { name: 'mongo' }
   const result = await db.find({ context: ctxProviders, query, includeCursor: true })
   expect(result.cursor.totalRecords).toBeGreaterThanOrEqual(1)
   done()
 })
 
-test('@phoenix/provder-mongo::Should find by id and update', async (done) => {
+test('@super-phoenix/provder-mongo::Should find by id and update', async (done) => {
   const criteria = { name: 'mongo' }
   const result = await db.findOne({ context: ctxProviders, criteria })
   // console.log(result, inserted)
@@ -115,7 +115,7 @@ test('@phoenix/provder-mongo::Should find by id and update', async (done) => {
   done()
 })
 
-test('@phoenix/provder-mongo::Should aggregate', async (done) => {
+test('@super-phoenix/provder-mongo::Should aggregate', async (done) => {
   await db.insert({ context: ctxDepartments, payload: { name: 'mathematics', category: 'students', count: 10 } })
   await db.insert({ context: ctxDepartments, payload: { name: 'physics', category: 'students', count: 20 } })
   await db.insert({ context: ctxDepartments, payload: { name: 'history', category: 'students', count: 100 } })
@@ -135,19 +135,19 @@ test('@phoenix/provder-mongo::Should aggregate', async (done) => {
   done()
 })
 
-test('@phoenix/provder-mongo::Should find as stream', async (done) => {
+test('@super-phoenix/provder-mongo::Should find as stream', async (done) => {
   const result = await db.findAsStream({ context: ctxDepartments })
   expect(isStream(result)).toEqual(true)
   done()
 })
 
-test('@phoenix/provder-mongo::Should return count', async (done) => {
+test('@super-phoenix/provder-mongo::Should return count', async (done) => {
   const result = await db.count({ context: ctxDepartments })
   expect(result.count).toEqual(5)
   done()
 })
 
-test('@phoenix/provder-mongo::Should insert multiple records', async (done) => {
+test('@super-phoenix/provder-mongo::Should insert multiple records', async (done) => {
   const result = await db.insertMany({
     context: ctxDepartments,
     payload: [
@@ -163,7 +163,7 @@ test('@phoenix/provder-mongo::Should insert multiple records', async (done) => {
   done()
 })
 
-test('@phoenix/provder-mongo::Should throw error if insert many payload is not an array', async (done) => {
+test('@super-phoenix/provder-mongo::Should throw error if insert many payload is not an array', async (done) => {
   const [err, result] = await to(db.insertMany({
     context: ctxDepartments,
     payload: { name: 'advanced mathematics', category: 'students', count: 10 }
@@ -174,7 +174,7 @@ test('@phoenix/provder-mongo::Should throw error if insert many payload is not a
   done()
 })
 
-test('@phoenix/provder-mongo::Should throw error if insert payload is an array', async (done) => {
+test('@super-phoenix/provder-mongo::Should throw error if insert payload is an array', async (done) => {
   const [err, result] = await to(db.insert({
     context: ctxDepartments,
     payload: [{ name: 'advanced mathematics', category: 'students', count: 10 }]
@@ -185,14 +185,14 @@ test('@phoenix/provder-mongo::Should throw error if insert payload is an array',
   done()
 })
 
-test('@phoenix/provder-mongo::Should access ObjectId', async (done) => {
+test('@super-phoenix/provder-mongo::Should access ObjectId', async (done) => {
   const ObjectID = db.ObjectID
   const oid = new ObjectID()
   expect(ObjectID.isValid(oid)).toEqual(true)
   done()
 })
 
-test('@phoenix/provder-mongo::Should find with projections', async (done) => {
+test('@super-phoenix/provder-mongo::Should find with projections', async (done) => {
   const find1 = await db.find({ context: ctxDepartments, query: {}, projection: { name: 1 }, includeCursor: true })
   expect(find1.cursor.totalRecords).toBeGreaterThanOrEqual(2)
   expect(find1.records[0].category).toBeFalsy()
@@ -200,7 +200,7 @@ test('@phoenix/provder-mongo::Should find with projections', async (done) => {
   done()
 })
 
-test('@phoenix/provder-mongo::Should find one with projections', async (done) => {
+test('@super-phoenix/provder-mongo::Should find one with projections', async (done) => {
   const department = await db.findOne({ context: ctxDepartments, query: { name: 'astro physics' }, projection: { name: 1 } })
   expect(department.category).toBeFalsy()
   done()

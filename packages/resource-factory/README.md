@@ -1,11 +1,11 @@
-# `@phoenix/resource-factory`
+# `@super-phoenix/resource-factory`
 
 > TODO: description
 
 ## Usage
 
 ```
-const resourceFactory = require('@phoenix/resource-factory');
+const resourceFactory = require('@super-phoenix/resource-factory');
 
 // TODO: DEMONSTRATE API
 ```

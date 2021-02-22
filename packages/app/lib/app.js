@@ -6,7 +6,7 @@ const Middlewares = require('./middlewares')
 const LogFormatter = require('./logFormatter')
 const logSkipper = require('./logSkipper')
 const _ = require('lodash')
-const ResourceFactory = require('@phoenix/resource-factory')
+const ResourceFactory = require('@super-phoenix/resource-factory')
 let _resources = null
 
 function create (params = {}) {

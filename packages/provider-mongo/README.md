@@ -1,11 +1,11 @@
-# `@phoenix/provider-mongo`
+# `@super-phoenix/provider-mongo`
 
 > TODO: description
 
 ## Usage
 
 ```
-const providerMongo = require('@phoenix/provider-mongo');
+const providerMongo = require('@super-phoenix/provider-mongo');
 
 // TODO: DEMONSTRATE API
 ```

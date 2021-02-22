@@ -20,28 +20,28 @@ afterAll(async () => {
   console.log('E2E completed, closed the server')
 })
 
-test('@phoenix/app:: healthcheck', async (done) => {
+test('@super-phoenix/app:: healthcheck', async (done) => {
   const response = await request(appInstance.callback())  
     .get('/healthcheck')
     expect(response.status).toEqual(200)
   done()
 })
 
-test('@phoenix/app:: version', async (done) => {
+test('@super-phoenix/app:: version', async (done) => {
   const response = await request(appInstance.callback())  
     .get('/version')
     expect(response.status).toEqual(200)
   done()
 })
 
-test('@phoenix/app:: try to access a protected route', async (done) => {
+test('@super-phoenix/app:: try to access a protected route', async (done) => {
   const response = await request(appInstance.callback())  
     .get('/api/v1/products')
     expect(response.status).toEqual(401)
   done()
 })
 
-test('@phoenix/app:: try to access a open route', async (done) => {
+test('@super-phoenix/app:: try to access a open route', async (done) => {
   const response = await request(appInstance.callback())  
     .get('/api/v1/requestId')
     expect(response.status).toEqual(200)
@@ -49,7 +49,7 @@ test('@phoenix/app:: try to access a open route', async (done) => {
   done()
 })
 
-test('@phoenix/app:: try to access a open route error path', async (done) => {
+test('@super-phoenix/app:: try to access a open route error path', async (done) => {
   const response = await request(appInstance.callback())  
     .get('/api/v1/error')
     expect(response.status).toEqual(500)
@@ -57,7 +57,7 @@ test('@phoenix/app:: try to access a open route error path', async (done) => {
   done()
 })
 
-test('@phoenix/app:: try to access a protected route with auth header', async (done) => {
+test('@super-phoenix/app:: try to access a protected route with auth header', async (done) => {
   const jwt = ProxyToken.generateJWT({user: 'noel'}, params.secret)
   const response = await request(appInstance.callback())  
     .get('/api/v1/projects')
@@ -67,7 +67,7 @@ test('@phoenix/app:: try to access a protected route with auth header', async (d
 })
 
 
-test('@phoenix/app:: should decode token into jwt to retrieve data', async (done) => {
+test('@super-phoenix/app:: should decode token into jwt to retrieve data', async (done) => {
   const jwt = ProxyToken.generateJWT({user: 'noel'}, params.secret)
   const response = await request(appInstance.callback())  
     .get('/api/v1/projects?token=1u1yi12712671jhgugh')
