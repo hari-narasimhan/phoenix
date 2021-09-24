@@ -3,6 +3,11 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo
+        ports: 
+          - 27017:27017
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
@@ -35,8 +40,8 @@ jobs:
         sudo apt-get install yarn
 
     - name: Install dependencies
-      run: yarn install
-    
+      run: yarn bootstrap
+
     - name: Test
       run: yarn test
 
