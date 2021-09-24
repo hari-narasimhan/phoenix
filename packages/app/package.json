@@ -1,6 +1,6 @@
 {
   "name": "@super-phoenix/app",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The microservice application",
   "keywords": [
     "microservice",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
-    "@super-phoenix/resource-factory": "^0.1.1",
+    "@super-phoenix/resource-factory": "^0.1.2",
     "await-to-js": "^2.1.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
@@ -39,8 +39,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@super-phoenix/provider-mongo": "^0.1.1",
-    "@super-phoenix/proxy-token": "^0.1.1",
+    "@super-phoenix/provider-mongo": "^0.1.2",
+    "@super-phoenix/proxy-token": "^0.1.2",
     "koa-router": "^10.0.0",
     "supertest": "^6.0.1"
   },
