@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "test": "node scripts/test.js --forceExit --detectOpenHandles --coverage",
-    "lint": "eslint --fix packages/**/*.js"
+    "lint": "eslint --fix packages/**/*.js",
+    "deploy": "lerna publish"
   },
   "devDependencies": {
     "eslint": "7.17.0",

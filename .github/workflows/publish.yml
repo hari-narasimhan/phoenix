@@ -1,0 +1,42 @@
+name: publish
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+
+    # 1. provide Personal Access Token for checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+          submodules: recursive
+          token: ${{ secrets.PUBLISH_PAT }}
+
+    # 2. setup .npmrc it uses NODE_AUTH_TOKEN
+    - name: Setup .npmrc file for publish
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+        registry-url: 'https://registry.npmjs.org'
+
+    # 3. configure git user used to push tag
+    - name: Configure Git User
+      run: |
+        git config --global user.email "harin76@gmail.com"
+        git config --global user.name "Hari Narasimhan"
+
+    - name: Install yarn
+      run: |
+        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+        sudo apt-get update
+        sudo apt-get install yarn
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Publish
+      run: |
+        lerna publish --yes
