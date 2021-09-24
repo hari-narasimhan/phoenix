@@ -39,4 +39,4 @@ jobs:
 
     - name: Publish
       run: |
-        lerna publish --yes
+        yarn deploy
