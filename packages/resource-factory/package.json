@@ -1,6 +1,6 @@
 {
   "name": "@super-phoenix/resource-factory",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Factory to create and manage resources",
   "keywords": [
     "resource",
